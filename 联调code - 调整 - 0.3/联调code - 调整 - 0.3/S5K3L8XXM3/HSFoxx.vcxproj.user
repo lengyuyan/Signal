@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LocalDebuggerWorkingDirectory>$(SolutionDir)distribute\$(Configuration)$(PlatformArchitecture)\</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerEnvironment>path=$(SolutionDir)..\opencv2410\$(PlatformArchitecture)\vc10\bin</LocalDebuggerEnvironment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LocalDebuggerWorkingDirectory>$(SolutionDir)distribute\$(Configuration)$(PlatformArchitecture)\</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerEnvironment>path=$(SolutionDir)..\opencv2410\$(PlatformArchitecture)\vc10\bin</LocalDebuggerEnvironment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
+    <LocalDebuggerWorkingDirectory>$(SolutionDir)distribute\$(Configuration)$(PlatformArchitecture)\</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerEnvironment>path=$(SolutionDir)..\opencv2410\$(PlatformArchitecture)\vc10\bin</LocalDebuggerEnvironment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LocalDebuggerWorkingDirectory>$(SolutionDir)distribute\$(Configuration)$(PlatformArchitecture)\</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerEnvironment>path=$(SolutionDir)..\opencv2410\$(PlatformArchitecture)\vc10\bin</LocalDebuggerEnvironment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LocalDebuggerWorkingDirectory>$(SolutionDir)distribute\$(Configuration)$(PlatformArchitecture)\</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerEnvironment>path=$(SolutionDir)..\opencv2410\$(PlatformArchitecture)\vc10\bin</LocalDebuggerEnvironment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|x64'">
+    <LocalDebuggerWorkingDirectory>$(SolutionDir)distribute\$(Configuration)$(PlatformArchitecture)\</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerEnvironment>path=$(SolutionDir)..\opencv2410\$(PlatformArchitecture)\vc10\bin</LocalDebuggerEnvironment>
+  </PropertyGroup>
+</Project>

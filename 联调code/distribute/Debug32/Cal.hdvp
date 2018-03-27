@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.1" halcon_version="12.0">
+<procedure name="Cal">
+<interface>
+<io>
+<par name="ImageA" base_type="iconic" dimension="0"/>
+<par name="ImageB" base_type="iconic" dimension="0"/>
+</io>
+<ic>
+<par name="PointA" base_type="ctrl" dimension="0"/>
+<par name="PointB" base_type="ctrl" dimension="0"/>
+</ic>
+<oc>
+<par name="centerA" base_type="ctrl" dimension="0"/>
+<par name="centerB" base_type="ctrl" dimension="0"/>
+</oc>
+</interface>
+<body>
+<c>*转成灰度图</c>
+<l>  rgb1_to_gray(ImageA,GImageA) </l>
+<l>  rgb1_to_gray(ImageB,GImageB)</l>
+<c>*框获得ROI区域  ROI1 ROI2 ROI3 ROI4 ROI5表示 上下中左右</c>
+<l>  gen_rectangle1(ROI1, PointA[0], PointA[1], PointA[2], PointA[3])</l>
+<l>  gen_rectangle1(ROI2, PointA[4], PointA[5], PointA[6], PointA[7])</l>
+<l>  gen_rectangle1(ROI3, PointA[8], PointA[9], PointA[10], PointA[11])</l>
+<l>  gen_rectangle1(ROI4, PointA[12], PointA[13], PointA[14], PointA[15])</l>
+<l>  gen_rectangle1(ROI5, PointA[16], PointA[17], PointA[18], PointA[19])</l>
+<c>  </c>
+<l>  gen_rectangle1(ROI6, PointB[0], PointB[1], PointB[2], PointB[3])</l>
+<l>  gen_rectangle1(ROI7, PointB[4], PointB[5], PointB[6], PointB[7])</l>
+<l>  gen_rectangle1(ROI8, PointB[8], PointB[9], PointB[10], PointB[11])</l>
+<l>  gen_rectangle1(ROI9, PointB[12], PointB[13], PointB[14], PointB[15])</l>
+<l>  gen_rectangle1(ROI10, PointB[16], PointB[17], PointB[18], PointB[19])</l>
+<c>*截取所画的区域  </c>
+<l>  reduce_domain(GImageA, ROI1, ImageReduced1)</l>
+<l>  reduce_domain(GImageA, ROI2, ImageReduced2)</l>
+<l>  reduce_domain(GImageA, ROI3, ImageReduced3)</l>
+<l>  reduce_domain(GImageA, ROI4, ImageReduced4)</l>
+<l>  reduce_domain(GImageA, ROI5, ImageReduced5)</l>
+<c> </c>
+<l>  reduce_domain(GImageB, ROI6, ImageReduced6)</l>
+<l>  reduce_domain(GImageB, ROI7, ImageReduced7)</l>
+<l>  reduce_domain(GImageB, ROI8, ImageReduced8)</l>
+<l>  reduce_domain(GImageB, ROI9, ImageReduced9)</l>
+<l>  reduce_domain(GImageB, ROI10, ImageReduced10)</l>
+<c>*自动阈值</c>
+<l>   binary_threshold(ImageReduced1, Region1, 'max_separability', 'dark', UsedThreshold)</l>
+<l>   binary_threshold(ImageReduced2, Region2, 'max_separability', 'dark', UsedThreshold)</l>
+<l>   binary_threshold(ImageReduced3, Region3, 'max_separability', 'dark', UsedThreshold)</l>
+<l>   binary_threshold(ImageReduced4, Region4, 'max_separability', 'dark', UsedThreshold)</l>
+<l>   binary_threshold(ImageReduced5, Region5, 'max_separability', 'dark', UsedThreshold)</l>
+<c></c>
+<l>   binary_threshold(ImageReduced6, Region6, 'max_separability', 'dark', UsedThreshold)</l>
+<l>   binary_threshold(ImageReduced7, Region7, 'max_separability', 'dark', UsedThreshold)</l>
+<l>   binary_threshold(ImageReduced8, Region8, 'max_separability', 'dark', UsedThreshold)</l>
+<l>   binary_threshold(ImageReduced9, Region9, 'max_separability', 'dark', UsedThreshold)</l>
+<l>   binary_threshold(ImageReduced10, Region10, 'max_separability', 'dark', UsedThreshold)</l>
+<c>*联通区域</c>
+<l>   connection(Region1, Single1)</l>
+<l>   connection(Region2, Single2)</l>
+<l>   connection(Region3, Single3)</l>
+<l>   connection(Region4, Single4)</l>
+<l>   connection(Region5, Single5)</l>
+<l>   connection(Region6, Single6)</l>
+<l>   connection(Region7, Single7)</l>
+<l>   connection(Region8, Single8)</l>
+<l>   connection(Region9, Single9)</l>
+<l>   connection(Region10, Single10)</l>
+<c>*按照面积大小选择区域</c>
+<l>   select_shape(Single1, Selected1, 'area', 'and', 5000, 200000)</l>
+<l>   select_shape(Single2, Selected2, 'area', 'and', 5000, 200000)</l>
+<l>   select_shape(Single3, Selected3, 'area', 'and', 5000, 200000)</l>
+<l>   select_shape(Single4, Selected4, 'area', 'and', 5000, 200000)</l>
+<l>   select_shape(Single5, Selected5, 'area', 'and', 5000, 200000)</l>
+<l>   select_shape(Single6, Selected6, 'area', 'and', 5000, 200000)</l>
+<l>   select_shape(Single7, Selected7, 'area', 'and', 5000, 200000)</l>
+<l>   select_shape(Single8, Selected8, 'area', 'and', 5000, 200000)</l>
+<l>   select_shape(Single9, Selected9, 'area', 'and', 5000, 200000)</l>
+<l>   select_shape(Single10, Selected10, 'area', 'and', 5000, 200000)</l>
+<c>*计算区域中心面积及坐标</c>
+<l>   area_center(Selected1, Area1, R1, C1)</l>
+<l>   area_center(Selected2, Area2, R2, C2)</l>
+<l>   area_center(Selected3, Area3, R3, C3)</l>
+<l>   area_center(Selected4, Area4, R4, C4)</l>
+<l>   area_center(Selected5, Area5, R5, C5)</l>
+<l>   area_center(Selected6, Area6, R6, C6)</l>
+<l>   area_center(Selected7, Area7, R7, C7)</l>
+<l>   area_center(Selected8, Area8, R8, C8)</l>
+<l>   area_center(Selected9, Area9, R9, C9)</l>
+<l>   area_center(Selected10, Area10, R10, C10)</l>
+<l>   centerA[0] := R1</l>
+<l>   centerA[1] := C1</l>
+<l>   centerA[2] := R2</l>
+<l>   centerA[3] := C2</l>
+<l>   centerA[4] := R3</l>
+<l>   centerA[5] := C3</l>
+<l>   centerA[6] := R4</l>
+<l>   centerA[7] := C4</l>
+<l>   centerA[8] := R5</l>
+<l>   centerA[9] := C5</l>
+<c>   </c>
+<l>   centerB[0] := R6</l>
+<l>   centerB[1] := C6</l>
+<l>   centerB[2] := R7</l>
+<l>   centerB[3] := C7</l>
+<l>   centerB[4] := R8</l>
+<l>   centerB[5] := C8</l>
+<l>   centerB[6] := R9</l>
+<l>   centerB[7] := C9</l>
+<l>   centerB[8] := R10</l>
+<l>   centerB[9] := C10</l>
+<l>   disp_cross(3600,R1,C1,50,0)</l>
+<l>   disp_cross(3600,R2,C2,50,0)</l>
+<l>   disp_cross(3600,R3,C3,50,0)</l>
+<l>   disp_cross(3600,R4,C4,50,0)</l>
+<l>   disp_cross(3600,R5,C5,50,0)</l>
+<c>   </c>
+<l>   disp_cross(3600,R6,C6,50,0)</l>
+<l>   disp_cross(3600,R7,C7,50,0)</l>
+<l>   disp_cross(3600,R8,C8,50,0)</l>
+<l>   disp_cross(3600,R9,C9,50,0)</l>
+<l>   disp_cross(3600,R10,C10,50,0)</l>
+<l>return ()</l>
+</body>
+<docu id="Cal">
+<parameters>
+<parameter id="ImageA"/>
+<parameter id="ImageB"/>
+<parameter id="PointA"/>
+<parameter id="PointB"/>
+<parameter id="centerA"/>
+<parameter id="centerB"/>
+</parameters>
+</docu>
+</procedure>
+</hdevelop>

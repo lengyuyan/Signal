@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.1" halcon_version="12.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>* open_framegrabber ('GigEVision', 0, 0, 0, 0, 0, 0, 'default', -1, 'default', -1, 'false', 'default', '003053247e4b_Basler_acA250014gm', 0, -1, AcqHandle)</l>
+<l>* grab_image_start (AcqHandle, -1)</l>
+<l>*while (true)</l>
+<l>*     grab_image_async (Image, AcqHandle, -1)</l>
+<l>read_image (Image, 'E:/IAVISION/自己的halcon程序/movh.jpg') </l>
+<c>    * Image Acquisition 01: Do something</c>
+<c>    *把1-80的找出来，其他的变成白色</c>
+<l>    scale_image(Image,Image,255/(85-0),-255/85 *0)</l>
+<c>        * Matching 01: BEGIN of generated code for model initialization</c>
+<l>    set_system ('border_shape_models', 'false')</l>
+<c>    * Matching 01: Obtain the model image</c>
+<c>    * Matching 01: The image is assumed to be made available in the</c>
+<c>    * Matching 01: variable last displayed in the graphics window</c>
+<l>    copy_obj (Image, Image, 1, 1)</l>
+<c>    * Matching 01: build the ROI from basic regions</c>
+<l>    *gen_rectangle2 (ModelRegion, 1183.73, 1750.56, rad(-8.98046), 228.509, 192.756)</l>
+<l>    *gen_rectangle2 (_TmpRegion, 1165.9, 1739.63, rad(-5.73862), 142.693, 100.012)</l>
+<l>    *difference (ModelRegion, _TmpRegion, ModelRegion)</l>
+<c>    * Matching 01: reduce the model template</c>
+<l>    *read_image (Image20171127, 'C:/Users/Administrator/Desktop/Image__2017-11-27.bmp')</l>
+<c>    </c>
+<l>    draw_rectangle1 (3600, Row1, Column1, Row2, Column2)</l>
+<l>*     gen_rectangle2 (ModelRegion, Row1, Column1, rad(-8.98046),  Row2, Column2)</l>
+<l>    gen_rectangle1(ModelRegion,Row1,Column1,Row2,Column2)</l>
+<l>    reduce_domain (Image, ModelRegion, TemplateImage)</l>
+<c>    </c>
+<c></c>
+<l>    binary_threshold(TemplateImage,Region,'max_separability', 'dark', UsedThreshold)</l>
+<l>closing_circle (Region, RegionClosing, 3.5)</l>
+<l>fill_up (RegionClosing, RegionFillUp)</l>
+<l>closing_rectangle1 (RegionFillUp, RegionClosing1, 22, 22)</l>
+<l>gen_contour_region_xld (RegionClosing1, Contours, 'border')</l>
+<l>TemplateImage :=Contours</l>
+<c>    * Matching 01: create the shape model</c>
+<l>   * create_shape_model (TemplateImage, 7, rad(0), rad(360), rad(0.4201), ['none','no_pregeneration'], 'use_polarity', [41,53,6], 3, ModelId)</l>
+<c>   </c>
+<c>    * 根据轮廓来创建，上面是根据区域来创建</c>
+<l>     create_shape_model_xld (TemplateImage, 'auto', -0.39, 0.79, 'auto', 'auto', 'ignore_local_polarity', 5, ModelId)</l>
+<c>    * Matching 01: get the model contour for transforming it later into the image</c>
+<l>    get_shape_model_contours (ModelContours, ModelId, 1)</l>
+<l>    write_shape_model (ModelId, 'E:/Matching 01.shm')</l>
+<c></c>
+<l>   * find_shape_model (TemplateImage, ModelId, rad(0), rad(360), 0.5, 0, 0.5, 'least_squares', [7,1], 0.75, ModelRow, ModelColumn, ModelAngle, ModelScore)</l>
+<l>    find_shape_model (Image, ModelId, -0.39, 0.78, 0.5, 0, 0.5, 'least_squares', 0, 0.9, ModelRow, ModelColumn, ModelAngle, ModelScore)</l>
+<c></c>
+<c>    * Matching 01: transform the model contours into the detected positions</c>
+<l>    for MatchingObjIdx := 0 to |ModelScore| - 1 by 1</l>
+<l>        hom_mat2d_identity (HomMat)</l>
+<l>        hom_mat2d_rotate (HomMat, ModelAngle[MatchingObjIdx], 0, 0, HomMat)</l>
+<l>        hom_mat2d_translate (HomMat, ModelRow[MatchingObjIdx], ModelColumn[MatchingObjIdx], HomMat)</l>
+<l>        affine_trans_contour_xld (ModelContours, TransContours, HomMat)</l>
+<l>        dev_display (TransContours)</l>
+<l>    endfor</l>
+<c>    </c>
+<c>    </c>
+<l>*endwhile</l>
+<l>* close_framegrabber (AcqHandle)</l>
+<c>    </c>
+<c>  *通过模板来找特征点的情况：首先是创建模板(创建模板会失败看下失败的原因)；然后是寻找模板  </c>
+<c>    *找模板</c>
+<l>    read_shape_model ('E:/Matching 01.shm', ModelID2)</l>
+<l>    read_image (Image, 'E:/IAVISION/自己的halcon程序/movh.jpg') </l>
+<l>    scale_image(Image,Image,255/(85-0),-255/85 *0)</l>
+<l>    draw_rectangle1 (3600, Row1, Column1, Row2, Column2)</l>
+<l>    gen_rectangle1 (Rectangle, Row1, Column1, Row2, Column2)</l>
+<l>    reduce_domain (Image, Rectangle, ImageReduced)</l>
+<l>    find_shape_model (ImageReduced, ModelID2, -0.39, 0.78, 0.5, 0, 0.5, 'least_squares', 0, 0.9, Row, Column, Angle, Score)</l>
+<l>    dev_display_shape_matching_results (ModelID2, 'red', Row, Column, Angle, 1, 1, 0)</l>
+<c>    </c>
+<l>    disp_cross(3600, Row, Column, 100, Angle)</l>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

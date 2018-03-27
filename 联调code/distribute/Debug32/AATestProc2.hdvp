@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.1" halcon_version="12.0">
+<procedure name="AATestProc">
+<interface>
+<io>
+<par name="ImageA" base_type="iconic" dimension="0"/>
+<par name="ImageB" base_type="iconic" dimension="0"/>
+</io>
+<oo>
+<par name="outA" base_type="iconic" dimension="0"/>
+<par name="outB" base_type="iconic" dimension="0"/>
+</oo>
+<ic>
+<par name="invalue" base_type="ctrl" dimension="0"/>
+<par name="display" base_type="ctrl" dimension="0"/>
+</ic>
+<oc>
+<par name="error" base_type="ctrl" dimension="0"/>
+<par name="message" base_type="ctrl" dimension="0"/>
+<par name="outValue" base_type="ctrl" dimension="0"/>
+</oc>
+</interface>
+<body>
+<c></c>
+<l>try</l>
+<c></c>
+<l>  gen_rectangle1 (ROI2, 2117, 2646, 2615, 3312)</l>
+<c></c>
+<l>  reduce_domain (ImageA, ROI2, ImageReduced2)</l>
+<c></c>
+<c>*自动阈值</c>
+<l>   binary_threshold (ImageReduced2, Dark, 'max_separability', 'dark', UsedThreshold)</l>
+<c>*联通区域</c>
+<l>  connection (Dark, Single)</l>
+<c>*按照面积大小选择区域</c>
+<l> select_shape (Single, Selected3, 'area', 'and', 5000, 200000)</l>
+<c></c>
+<c>*计算区域中心面积及坐标</c>
+<c></c>
+<c>  </c>
+<l>   area_center (Selected3, Area3, Row3, Column3)</l>
+<c></c>
+<c></c>
+<c></c>
+<l>*   outValue[0] := 1</l>
+<l>*  outValue[1] := 2</l>
+<c>  </c>
+<l>  outValue[0] := Row3</l>
+<l> outValue[1] := Column3</l>
+<l>*  outValue[2] := 1.0</l>
+<l>*  outValue[3] := 2.0</l>
+<c></c>
+<l>*   copy_image(outA,ImageReduced2)</l>
+<l> outA := ImageReduced2</l>
+<c></c>
+<l>outB := Selected3</l>
+<l>error := 10</l>
+<l>message :='OKk1'</l>
+<c></c>
+<c></c>
+<l>return ()</l>
+<l>catch (Exception)</l>
+<l>    error := error - 1</l>
+<l>    message := Exception</l>
+<l>    return()</l>
+<l>endtry</l>
+</body>
+<docu id="AATestProc">
+<parameters>
+<parameter id="ImageA"/>
+<parameter id="ImageB"/>
+<parameter id="display"/>
+<parameter id="error"/>
+<parameter id="invalue"/>
+<parameter id="message"/>
+<parameter id="outA"/>
+<parameter id="outB"/>
+<parameter id="outValue"/>
+</parameters>
+</docu>
+</procedure>
+</hdevelop>

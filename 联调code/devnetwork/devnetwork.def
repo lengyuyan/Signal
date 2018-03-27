@@ -1,0 +1,7 @@
+LIBRARY "devnetwork.dll"
+
+EXPORTS
+    init_devnetwork
+    uninit_devnetwork
+	regist_work_notify
+	test

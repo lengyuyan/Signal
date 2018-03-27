@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="diskinfo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="HSFoxx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="HSFoxxDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="IniFileRW.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Jpegfile.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="tvdecode.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="getEdgeLaplace.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="getState5.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="getOffcenter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="getState.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AA_PARAAM.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AA_define_tool.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AARobot.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AAvision.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AAvisionthreads.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DoubleAA.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="diskinfo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dtccm2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="HSFoxx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="HSFoxxDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="imagekit.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="JCONFIG.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IniFileRW.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="JMORECFG.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Jpegfile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="JPEGLIB.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="tvdecode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="harris.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="polyfit.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="str_tool.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AA_PARAAM.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AA_define_tool.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AARobot.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AAvision.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AAvisionthreads.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AAalgorithm.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\HSFoxx.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\HSFoxx.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{58fad123-71e4-48b7-99cd-f155baa181fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{44bf9fbb-2027-49f3-a906-a50b58c6ec30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{35209b15-f74f-4fe4-8499-c0dc377e4b3e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="HSFoxx.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

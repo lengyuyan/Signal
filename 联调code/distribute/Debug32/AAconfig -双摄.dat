@@ -1,0 +1,168 @@
+[AA_Adjustparam]
+AAadjust_zMaxNum = 10
+AAadjust_uvthr = 0.11900
+AAadjust_z2 = 0.05000
+AAadjust_z3 = 0.03000
+AAadjust_z4 = 0.03000
+AAadjust_z7 = 0.03000
+AAadjust_z0 = 0.15000
+AAadjust_z1 = 0.10000
+AAadjust_z9 = 0.01000
+AAadjust_z8 = 0.10000
+AAadjust_z5 = 0.03000
+AAadjust_z6 = 0.03000
+AAadjust_zthr = 0.00490
+AAadjust_uvMaxNum = 10
+AAadjust_uv9 = 0.01000
+AAadjust_uv8 = 0.01000
+AAadjust_uv7 = 0.01000
+AAadjust_uv0 = 0.08000
+AAadjust_uv1 = 0.07000
+AAadjust_uv2 = 0.06000
+AAadjust_uv3 = 0.05000
+AAadjust_uv4 = 0.03000
+AAadjust_uv6 = 0.02000
+AAadjust_uv5 = 0.04000
+
+[AA_Globle_param]
+doubleAAsize = 500.00000
+edge_size = 18
+scale = 0.20000
+focus = 3.31000
+objdis = 600.00000
+pixel_size = 0.00112
+size = 75
+block = 100
+doubleAApiccenterX = 2104.00000
+doubleAApiccenterY = 1560.00000
+block_size = 22
+pic_width = 3120
+pic_length = 4208
+t_mapsize = 50
+t_mapdiswidth = 185
+t_mapdislength = 250
+AA_TEST_TYPE = 1
+doubleAACentroidthreshold = 0.30000
+doubleAAscale = 1.00000
+doubleAAmapdiswidth = 240.00000
+doubleAAdis = 18.00000
+doubleAAmapdislength = 333.00000
+
+[AAROBOTBIND]
+robot1 = 192.168.0.141
+robot2 = 192.168.0.142
+robot3 = 192.168.0.143
+robot4 = 192.168.0.144
+
+[AACoreCfg]
+savepicture = 1
+
+[AAVISION_USERNAME]
+UserName8 = Camera_8
+UserName7 = Camera_7
+UserName6 = Camera_6
+UserName5 = Camera_5
+UserName4 = Camera_4
+UserName3 = Camera_3
+UserName2 = Camera_2
+UserName1 = Camera_1
+
+[AAVISION_TEMPLET]
+Camera_1 = 3
+Camera_8 = 3
+Camera_3 = 1
+Camera_2 = 1
+Camera_5 = 2
+Camera_4 = 1
+Camera_7 = 3
+Camera_6 = 3
+
+[AAVISION_PATH]
+Camera_8 = F:\S5K3L8.ini
+Camera_7 = F:\S5K3L8.ini
+Camera_2 = F:\S5K3L8.ini
+Camera_1 = F:\S5K3L8.ini
+Camera_6 = F:\S5K3L8.ini
+Camera_5 = F:\S5K3L8.ini
+Camera_3 = F:\S5K3L8.ini
+Camera_4 = F:\S5K3L8.ini
+
+[AAVISION_MCLK]
+Mclk2 = 12.0
+Mclk1 = 12.0
+Mclk8 = 20.0
+Mclk7 = 20.0
+Mclk6 = 20.0
+Mclk5 = 20.0
+Mclk4 = 20.0
+Mclk3 = 20.0
+
+[AAVISION_POWER]
+Dvdd5 = 1200.0
+Dvdd3 = 1200.0
+Avdd3 = 2800.0
+Avdd4 = 2800.0
+Dvdd6 = 1200.0
+Dvdd4 = 1200.0
+Avdd5 = 2800.0
+Avdd6 = 2800.0
+Dvdd2 = 1200.0
+Dvdd1 = 1200.0
+Avdd1 = 2800.0
+Avdd2 = 2800.0
+Dvdd8 = 1200.0
+Dvdd7 = 1200.0
+Avdd7 = 2800.0
+Avdd8 = 2800.0
+Dovdd4 = 1800.0
+Dovdd3 = 1800.0
+Dovdd6 = 1800.0
+Dovdd5 = 1800.0
+Dovdd2 = 1800.0
+Dovdd1 = 1800.0
+Dovdd8 = 1800.0
+Dovdd7 = 1800.0
+Afvcc4 = 2800.0
+Afvcc3 = 2800.0
+Afvcc6 = 2800.0
+Afvcc5 = 2800.0
+Afvcc2 = 2800.0
+Afvcc1 = 2800.0
+Afvcc8 = 2800.0
+Afvcc7 = 2800.0
+Vpp4 = 2800.0
+Vpp3 = 1800.0
+Vpp6 = 2800.0
+Vpp5 = 1800.0
+Vpp2 = 2800.0
+Vpp1 = 1800.0
+Vpp8 = 2800.0
+Vpp7 = 1800.0
+
+[AAVISION_AF]
+FocusPos6 = 0
+FocusPos5 = 0
+FocusPos4 = 0
+FocusPos3 = 0
+FocusPos2 = 0
+FocusPos1 = 0
+FocusPos8 = 0
+FocusPos7 = 0
+
+[SystemCfg]
+FarmeWork = 1601
+HardWareVision = mcu_v1.0
+SoftVision = mcu_v1.0
+
+[AA_Robot_InitialPos]
+Robot1_InitPos = 12.7,12.7,26.8,0.00000,0.000000,-45.0;
+Robot2_InitPos = 0.0,-163.6,-15.3,0.0,0.0,90.0;
+Robot3_InitPos = 0.0,162.0,-15.3,0.0,0.0,90.0;
+Robot4_InitPos = -162.0,0.0,-15.3,0.0,0.0,180.0;
+
+[AARobot_CameraPos]
+Robot1_CameraPos = 165.0,0.56,-15.3,0.0,0.0,0.0;
+Robot2_CameraPos = 0.56,-163.6,-15.3,0.0,0.0,90.0;
+Robot3_CameraPos = 0.0,162.0,-15.3,0.0,0.0,90.0;
+Robot4_CameraPos = -162.0,0.0,-15.3,0.0,0.0,180.0;
+

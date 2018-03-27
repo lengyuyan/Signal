@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.1" halcon_version="12.0">
+<procedure name="AATestProc">
+<interface>
+<io>
+<par name="ImageA" base_type="iconic" dimension="0"/>
+<par name="ImageB" base_type="iconic" dimension="0"/>
+</io>
+<oo>
+<par name="outA" base_type="iconic" dimension="0"/>
+<par name="outB" base_type="iconic" dimension="0"/>
+</oo>
+<ic>
+<par name="invalue" base_type="ctrl" dimension="0"/>
+<par name="display" base_type="ctrl" dimension="0"/>
+<par name="PointA" base_type="ctrl" dimension="0"/>
+<par name="PointB" base_type="ctrl" dimension="0"/>
+</ic>
+<oc>
+<par name="error" base_type="ctrl" dimension="0"/>
+<par name="message" base_type="ctrl" dimension="0"/>
+<par name="outValue" base_type="ctrl" dimension="0"/>
+</oc>
+</interface>
+<body>
+<l>try</l>
+<c>*图片的信息，存储在.dat文件中，如果有东西变化记得修改这几个常量</c>
+<l>  dis_pixel := 89</l>
+<l>  g_AAParam_focus := 3.31</l>
+<l>  g_AAParam_mapdislength := 4208</l>
+<l>  g_AAParam_mapdiswidth := 3120</l>
+<l>  g_AAParam_pixel_size := 0.00112</l>
+<l>  Cal(ImageA, ImageB, PointA, PointB,centerA,centerB)</l>
+<l>  Btl_R := centerA[0]</l>
+<l>  Btl_C := centerA[1]</l>
+<c> </c>
+<l>  Bbr_R := centerA[2]</l>
+<l>  Bbr_C := centerA[3]</l>
+<c>  </c>
+<l>  Bc_R := centerA[4]</l>
+<l>  Bc_C := centerA[5]</l>
+<c>  </c>
+<l>  Bbl_R := centerA[6]</l>
+<l>  Bbl_C := centerA[7]</l>
+<c>  </c>
+<l>  Btr_R := centerA[8]</l>
+<l>  Btr_C := centerA[9]</l>
+<c>  </c>
+<l>  Itl_R := centerB[0]</l>
+<l>  Itl_C := centerB[1]</l>
+<c>  </c>
+<l>  Ibr_R := centerB[2]</l>
+<l>  Ibr_C := centerB[3]</l>
+<c>  </c>
+<l>  Ic_R :=  centerB[4]</l>
+<l>  Ic_C :=  centerB[5]</l>
+<c>  </c>
+<l>  Ibl_R := centerB[6]</l>
+<l>  Ibl_C := centerB[7]</l>
+<c>  </c>
+<l>  Itr_R := centerB[8]</l>
+<l>  Itr_C := centerB[9]</l>
+<c>*开始计算</c>
+<c>*bw角度  y为图像的列方向上的坐标 x为行方向上的</c>
+<l>   kb1 := abs( (Btl_R - Btr_R) / (Btl_C - Btr_C) )</l>
+<l>   kb2 := abs( (Bbl_R - Bbr_R) / (Bbl_C - Bbr_C) )</l>
+<l>   kb3 := abs( (Btr_C - Bbr_C) / (Btr_R - Bbr_R) )</l>
+<l>   kb4 := abs( (Btl_C - Bbl_C) / (Btl_R - Bbl_R) )             </l>
+<l>   kB1 := (kb1+kb2)/2</l>
+<l>   kB2 := (kb3+kb4)/2</l>
+<c>*lw角度</c>
+<l>   ki1 := abs( (Itl_R - Itr_R) / (Itl_C - Itr_C) )</l>
+<l>   ki2 := abs( (Ibl_R - Ibr_R) / (Ibl_C - Ibr_C) )</l>
+<l>   ki3 := abs( (Itr_C - Ibr_C) / (Itr_R - Ibr_R) )</l>
+<l>   ki4 := abs( (Itl_C - Ibl_C) / (Itl_R - Ibl_R) )</l>
+<l>   kI1 := (ki1+ki2)/2</l>
+<l>   kI2 := (ki3+ki4)/2</l>
+<c>*4个角点围成的是个平行四边形</c>
+<c>*四条边的原图斜率 可移动图斜率 和 所要转的角度之间的关系 </c>
+<c>*k1 k2斜率相近，k3 k4斜率相近，所以分成两组求平均值。两组斜率分别算出 w'和w 再求其均值</c>
+<l>   sita1 := (abs(kI1 - kB1))/(1+kI1*kB1)</l>
+<l>   sita2 := (abs(kI2 - kB2))/(1+kI2*kB2)</l>
+<l>   tempVal_1 := (Btl_R - Btr_R)/(Btr_C - Btl_C)</l>
+<l>   tempVal_2 := (Itl_R - Itr_R)/(Itr_C - Itl_C)</l>
+<l>   tuple_atan(sita1,a)</l>
+<l>   tuple_atan(sita2,b)</l>
+<l>   if( 0 &lt; tempVal_2 - tempVal_1 )</l>
+<l>		w := - ( a + b )*90/3.1415926</l>
+<l>	else </l>
+<l>		w := ( a + b )*90/3.1415926</l>
+<l>    endif</l>
+<c></c>
+<l>    centerBp_R := ( Btl_R + Bbr_R + Bc_R + Bbl_R + Btr_R )/5</l>
+<l>    centerBp_C := ( Btl_C + Bbr_C + Bc_C + Bbl_C + Btr_C )/5</l>
+<l>    centerIp_R := ( Itl_R + Ibr_R + Ic_R + Ibl_R + Itr_R )/5</l>
+<l>    centerIp_C := ( Itl_C + Ibr_C + Ic_C + Ibl_C + Itr_C )/5</l>
+<c>*基准图为B在图像左边，等于 I.x</c>
+<l>	delta_x := centerIp_R - centerBp_R </l>
+<l>	delta_y := centerIp_C - centerBp_C- dis_pixel</l>
+<c>*修正 v 公式</c>
+<l>	Val_a := ( centerBp_R - g_AAParam_mapdiswidth/2 )</l>
+<l>	Val_b := ( centerIp_R - g_AAParam_mapdiswidth/2 )</l>
+<l>	if( Val_a*Val_b &gt; 0 )</l>
+<l>		Val_a := abs(Val_a)*g_AAParam_pixel_size/g_AAParam_focus</l>
+<l>		Val_b := abs(Val_b)*g_AAParam_pixel_size/g_AAParam_focus</l>
+<l>		if( delta_x &gt; 0 )</l>
+<c>            *Para.v = atan( abs(Val_a - Val_b)/(1 + Val_a*Val_b) ) / 3.1415926 * 180</c>
+<l>            tuple_atan( abs(Val_a - Val_b)/(1 + Val_a*Val_b),c )</l>
+<l>            v := c*180/3.1415926</l>
+<l>		else</l>
+<c>            *Para.v = -atan( abs(Val_a - Val_b)/(1 + Val_a*Val_b) ) / 3.1415926 * 180</c>
+<l>            tuple_atan( abs(Val_a - Val_b)/(1 + Val_a*Val_b),c )</l>
+<l>            v := -c*180/3.1415926</l>
+<l>        endif</l>
+<l>	else</l>
+<l>		Val_a := abs(Val_a)*g_AAParam_pixel_size/g_AAParam_focus</l>
+<l>		Val_b := abs(Val_b)*g_AAParam_pixel_size/g_AAParam_focus</l>
+<l>		if( delta_x &gt; 0 )</l>
+<l>			if( (Val_a+Val_b)/(1-Val_a*Val_b) &gt; 0 )</l>
+<c>				*Para.v = atan( (Val_a+Val_b)/(1-Val_a*Val_b) )/3.1415926*180</c>
+<l>                tuple_atan( (Val_a+Val_b)/(1-Val_a*Val_b),c )</l>
+<l>                v := c*180/3.1415926</l>
+<l>			else</l>
+<c>				*Para.v = 90 - atan( (Val_a+Val_b)/(1-Val_a*Val_b) )/3.1415926*180</c>
+<l>                tuple_atan( (Val_a+Val_b)/(1-Val_a*Val_b),c )</l>
+<l>                v := 90 -c*180/3.1415926</l>
+<l>            endif</l>
+<l>		else</l>
+<l>			if( (Val_a+Val_b)/(1-Val_a*Val_b) &gt; 0 )</l>
+<c>				*Para.v = -atan( (Val_a+Val_b)/(1-Val_a*Val_b) )/3.1415926*180</c>
+<l>                tuple_atan( (Val_a+Val_b)/(1-Val_a*Val_b),c )</l>
+<l>                v := -c*180/3.1415926</l>
+<l>			else</l>
+<c>				*Para.v = -90 + atan( (Val_a+Val_b)/(1-Val_a*Val_b) )/3.1415926*180</c>
+<l>                tuple_atan( (Val_a+Val_b)/(1-Val_a*Val_b),c )</l>
+<l>                v := -90 + c*180/3.1415926</l>
+<l>            endif</l>
+<l>        endif</l>
+<l>    endif</l>
+<c>*修正 u 公式</c>
+<l>	Val_a := ( centerBp_C+ dis_pixel- g_AAParam_mapdislength/2 )</l>
+<l>	Val_b := ( centerIp_C - g_AAParam_mapdislength/2 )</l>
+<l> 	if( Val_a*Val_b &gt; 0 )</l>
+<l>		Val_a := abs(Val_a)*g_AAParam_pixel_size/g_AAParam_focus</l>
+<l>		Val_b := abs(Val_b)*g_AAParam_pixel_size/g_AAParam_focus</l>
+<l>		if( delta_y &gt; 0 )</l>
+<c>			*Para.u = atan( abs(Val_a - Val_b)/(1 + Val_a*Val_b) ) / 3.1415926 * 180</c>
+<l>            tuple_atan( abs(Val_a - Val_b)/(1 + Val_a*Val_b),c )</l>
+<l>            u := c*180/3.1415926</l>
+<l>		else</l>
+<c>			*Para.u = -atan( abs(Val_a - Val_b)/(1 + Val_a*Val_b) ) / 3.1415926 * 180</c>
+<l>            tuple_atan( abs(Val_a - Val_b)/(1 + Val_a*Val_b),c )</l>
+<l>            u := -c*180/3.1415926</l>
+<l>        endif</l>
+<l>	else</l>
+<l>		Val_a := abs(Val_a)*g_AAParam_pixel_size/g_AAParam_focus</l>
+<l>		Val_b := abs(Val_b)*g_AAParam_pixel_size/g_AAParam_focus</l>
+<l>		if( delta_y &gt; 0 )</l>
+<l>			if( (Val_a+Val_b)/(1-Val_a*Val_b) &gt; 0 )</l>
+<c>				*Para.u = atan( (Val_a+Val_b)/(1-Val_a*Val_b) )/3.1415926*180</c>
+<l>                tuple_atan( (Val_a+Val_b)/(1-Val_a*Val_b),c )</l>
+<l>                u := c*180/3.1415926</l>
+<l>			else</l>
+<c>				*Para.u = 90 - atan( (Val_a+Val_b)/(1-Val_a*Val_b) )/3.1415926*180</c>
+<l>                tuple_atan( (Val_a+Val_b)/(1-Val_a*Val_b),c )</l>
+<l>                u := 90 - c*180/3.1415926</l>
+<l>            endif</l>
+<l>		else</l>
+<l>			if( (Val_a+Val_b)/(1-Val_a*Val_b) &gt; 0 )</l>
+<c>				*Para.u := -atan( (Val_a+Val_b)/(1-Val_a*Val_b) )/3.1415926*180</c>
+<l>                tuple_atan( (Val_a+Val_b)/(1-Val_a*Val_b),c )</l>
+<l>                u := -c*180/3.1415926</l>
+<l>			else</l>
+<c>				*Para.u := -90 + atan( (Val_a+Val_b)/(1-Val_a*Val_b) )/3.1415926*180</c>
+<l>                tuple_atan( (Val_a+Val_b)/(1-Val_a*Val_b),c )</l>
+<l>                u := -90 + c*180/3.1415926</l>
+<l>            endif</l>
+<l>        endif</l>
+<l>    endif</l>
+<l>   outValue[0] := u</l>
+<l>   outValue[1] := v</l>
+<l>   outValue[2] := w</l>
+<l>error := 10</l>
+<l>message :='OKk1'</l>
+<l>catch (Exception)</l>
+<l>    error := error - 1</l>
+<l>    message := Exception</l>
+<l>    return()</l>
+<l>endtry</l>
+<c></c>
+<l>return ()</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+</body>
+<docu id="AATestProc">
+<parameters>
+<parameter id="ImageA"/>
+<parameter id="ImageB"/>
+<parameter id="PointA"/>
+<parameter id="PointB"/>
+<parameter id="display"/>
+<parameter id="error"/>
+<parameter id="invalue"/>
+<parameter id="message"/>
+<parameter id="outA"/>
+<parameter id="outB"/>
+<parameter id="outValue"/>
+</parameters>
+</docu>
+</procedure>
+</hdevelop>

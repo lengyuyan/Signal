@@ -1,0 +1,1 @@
+把include中的数据东西放到distributr/debug32中

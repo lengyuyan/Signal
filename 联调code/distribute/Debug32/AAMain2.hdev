@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.1" halcon_version="12.0">
+<procedure name="main">
+<interface/>
+<body>
+<c></c>
+<c></c>
+<l>read_image(imageA,'E:\\1.jpg')</l>
+<l>read_image(imageB,'E:\\2.jpg')</l>
+<c></c>
+<c></c>
+<l>error :=0</l>
+<l>message:='OK'</l>
+<l>outValue:=1</l>
+<l>outA :=imageA</l>
+<l>outB := imageB</l>
+<l>invalue:=1</l>
+<l>display :=0</l>
+<l>AATestProc(imageA,imageB , outA, outB,invalue , display, error, message, outValue)</l>
+<c></c>
+<l>dev_display(outA)</l>
+<l>dev_display(outB)</l>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

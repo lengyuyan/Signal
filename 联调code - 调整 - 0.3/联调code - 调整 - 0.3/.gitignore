@@ -1,0 +1,17 @@
+Debug
+Release
+obj
+temp
+ipch
+*.aps
+*.log
+*.bak
+*.sdf
+*.opensdf
+*.db
+*.opendb
+*.tmp
+*.suo
+*.lib
+*.dll
+*.pch

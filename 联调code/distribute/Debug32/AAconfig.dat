@@ -1,0 +1,223 @@
+[AA_Adjustparam]
+AAadjust_zMaxNum = 10
+AAadjust_uvthr = 0.30000
+AAadjust_z2 = 0.02000
+AAadjust_z3 = 0.01000
+AAadjust_z4 = 0.00700
+AAadjust_z7 = 0.00700
+AAadjust_z0 = 0.06000
+AAadjust_z1 = 0.03000
+AAadjust_z9 = 0.00700
+AAadjust_z8 = 0.00700
+AAadjust_z5 = 0.00700
+AAadjust_z6 = 0.00700
+AAadjust_zthr = 0.00490
+AAadjust_uvMaxNum = 10
+AAadjust_uv9 = 0.00700
+AAadjust_uv8 = 0.00700
+AAadjust_uv7 = 0.00700
+AAadjust_uv0 = 0.06000
+AAadjust_uv1 = 0.03000
+AAadjust_uv2 = 0.02000
+AAadjust_uv3 = 0.01000
+AAadjust_uv4 = 0.00700
+AAadjust_uv6 = 0.00700
+AAadjust_uv5 = 0.00700
+
+[AA_Globle_param]
+doubleAAsize = 500.00000
+edge_size = 18
+scale = 0.20000
+focus = 3.31000
+objdis = 600.00000
+pixel_size = 0.00112
+size = 75
+block = 110
+doubleAAVnum = 0
+doubleAApiccenterX = 2104.00000
+doubleAApiccenterY = 1560.00000
+block_size = 22
+pic_width = 3120
+pic_length = 4208
+t_mapsize = 50
+t_mapdiswidth = 210
+t_mapdislength = 290
+doubleAACentroidthreshold = 0.30000
+isRobot = 1
+AA_TEST_TYPE = 0
+doubleAAWth = 0.10000
+doubleAAscale = 0.20000
+doubleAAmapdiswidth = 240.00000
+doubleAAdis = 18.00000
+doubleAAmapdislength = 333.00000
+Adjuest_Method = 2
+double_locangle = 12.00000
+doubleAAUth = 0.1
+doubleAAVth = 0.1
+doubleAAUnum = 10
+doubleAAWnum = 11
+double_locdis = 12.00000
+
+[AAROBOTBIND]
+robot4 = 192.168.16.144
+robot1 = 192.168.16.141
+robot2 = 192.168.16.142
+robot3 = 192.168.16.143
+
+[AA_Reginal_param]
+Channe2_Retagle = 700.0,900.0,1700.0,1800.0,1700.0,2400.0,2800.0,3330.0,1200.0,1600.0,2000.0,2500.0,1700.0,883.0,2800.0,1739.0,700.0,2328.0,1700.0,3271.0,54.4,15.4,69.1,42.2,50.1,99.8,72.9,118.2;
+Channe1_Retagle = 1097.4,1170.6,1609.3,1767.7,1800.0,2600.0,2700.0,3800.0,1634.0,1976.5,2139.8,2521.4,1900.0,500.0,2700.0,2000.0,1529.2,3518.6,2115.1,4052.0,1578.5,1953.3,2127.5,2556.2,0.0,0.0,0.0,0.0;
+Channe6_Retagle = 0.0,150.6,-15.3,0.0;
+Channe5_Retagle = 155.000065,1.889896,-15.529970,0.000022;
+Channe4_Retagle = 0.000000,0.000000,0.500000,-0.000000;
+Channe3_Retagle = 0.000000,-154.000000,-15.300000,-0.000000;
+Channe8_Retagle = 0.000000,0.000000,0.500000,-0.000000;
+Channe7_Retagle = 0.000000,-154.000000,-15.300000,-0.000000;
+
+[AACoreCfg]
+savepicture = 1
+
+[AAVISION_USERNAME]
+UserName5 = Camera_5
+UserName6 = Camera_6
+UserName3 = Camera_3
+UserName4 = Camera_4
+UserName1 = Camera_1
+UserName2 = Camera_2
+UserName8 = Camera_8
+UserName7 = Camera_7
+
+[AAVISION_TEMPLET]
+Camera_1 = 3
+Camera_8 = 3
+Camera_6 = 3
+Camera_7 = 3
+Camera_4 = 3
+Camera_5 = 3
+Camera_2 = 3
+Camera_3 = 3
+
+[AAVISION_PATH]
+Camera_8 = D:\S5K3L8\S5K3L8.ini
+Camera_7 = D:\S5K3L8\S5K3L8.ini
+Camera_2 = D:\S5K3L8\S5K3L8_3.ini
+Camera_1 = D:\S5K3L8\S5K3L8_3.ini
+Camera_6 = D:\S5K3L8\S5K3L8.ini
+Camera_5 = D:\S5K3L8\S5K3L8.ini
+Camera_3 = D:\S5K3L8\S5K3L8_3.ini
+Camera_4 = D:\S5K3L8\S5K3L8.ini
+
+[AAVISION_MCLK]
+Mclk2 = 20.0
+Mclk1 = 20.0
+Mclk8 = 12.0
+Mclk7 = 12.0
+Mclk6 = 20.0
+Mclk5 = 20.0
+Mclk4 = 20.0
+Mclk3 = 20.0
+
+[AAVISION_GRAIN]
+grain2 = 99
+grain1 = 99
+grain8 = 59
+grain7 = 42
+grain6 = 48
+grain5 = 48
+grain4 = 48
+grain3 = 48
+
+[AAVISION_EXPOSURE]
+exposure2 = 1535
+exposure1 = 1535
+exposure8 = 251
+exposure7 = 344
+exposure6 = 260
+exposure5 = 260
+exposure4 = 260
+exposure3 = 260
+
+[AAVISION_POWER]
+Dvdd5 = 1200.0
+Dvdd3 = 1200.0
+Avdd3 = 2800.0
+Avdd4 = 2800.0
+Dvdd6 = 1200.0
+Dvdd4 = 1200.0
+Avdd5 = 2800.0
+Avdd6 = 2800.0
+Dvdd2 = 1200.0
+Dvdd1 = 1200.0
+Avdd1 = 2800.0
+Avdd2 = 2800.0
+Dvdd8 = 1200.0
+Dvdd7 = 1200.0
+Avdd7 = 2800.0
+Avdd8 = 2800.0
+Dovdd4 = 1800.0
+Dovdd3 = 1800.0
+Dovdd6 = 1800.0
+Dovdd5 = 1800.0
+Dovdd2 = 1800.0
+Dovdd1 = 1800.0
+Dovdd8 = 1800.0
+Dovdd7 = 1800.0
+Afvcc4 = 2800.0
+Afvcc3 = 2800.0
+Afvcc6 = 2800.0
+Afvcc5 = 2800.0
+Afvcc2 = 2800.0
+Afvcc1 = 2800.0
+Afvcc8 = 2800.0
+Afvcc7 = 2800.0
+Vpp4 = 1800.0
+Vpp3 = 1800.0
+Vpp6 = 1800.0
+Vpp5 = 1800.0
+Vpp2 = 1800.0
+Vpp1 = 1800.0
+Vpp8 = 1800.0
+Vpp7 = 1800.0
+
+[AAVISION_AF]
+FocusPos6 = 0
+FocusPos5 = 0
+FocusPos4 = 0
+FocusPos3 = 0
+FocusPos2 = 0
+FocusPos1 = 0
+FocusPos8 = 0
+FocusPos7 = 0
+
+[SystemCfg]
+FarmeWork = 1601
+HardWareVision = mcu_v1.0
+SoftVision = mcu_v1.0
+
+[AA_Robot_InitialPos]
+Robot1_InitPos = 0.000000,0.000000,0.500000,-0.000000,0.000000,-0.000000;
+Robot2_InitPos = 0.000000,-154.000000,-15.300000,-0.000000,0.000000,90.000000;
+Robot3_InitPos = 0.0,150.6,-15.3,0.0,0.0,90.0;
+Robot4_InitPos = 155.000065,1.889896,-15.529970,0.000022,-0.000007,179.999961;
+
+[AAPaint]
+VISION_CENTET8 = 2200.0,1760.0;
+VISION_CENTET7 = 2270.0,1750.0;
+VISION_CENTET6 = 2104.0,1560.0;
+VISION_CENTET5 = 2104.0,1560.0;
+VISION_CENTET4 = 2104.0,1560.0;
+VISION_CENTET3 = 2104.0,1560.0;
+VISION_CENTET2 = 2104.0,1560.0;
+VISION_CENTET1 = 2104.0,1561.0;
+
+[AARobot_CameraPos]
+Robot1_CameraPos = 154.500007,0.000009,-15.299997,0.000006,-0.000003,0.000000;
+Robot2_CameraPos = 0.0,-156.4,-15.3,0.0,0.0,90.0;
+Robot3_CameraPos = 0.0,150.6,-15.3,0.0,0.0,90.0;
+Robot4_CameraPos = -155.4.0,0.0,-15.3,0.0,0.0,180.0;
+
+[HALCON_PARAMSETTING]
+SelectShapeP = area,and,70000.0,80000.0,area,and,2500.0,2000000.0,area,and,1000.0,2000.0,area,and,1000.0,2000.0,area,and,1000.0,2000.0,area,and,1000.0,2000.0,area,and,1000.0,2000.0,area,and,1001.0,2002.0;
+BinaryThresholdP = max_separability,dark,max_separability,dark,max_separability,dark,max_separability,dark,max_separability,dark,max_separability,dark,max_separability,dark,max_separability,darr;
+ScaleImageP = 1.00000000000,0.00000000000,1.00000000000,0.00000000000,1.00000000000,0.00000000000,1.00000000000,0.00000000000,1.00000000000,0.00000000000,1.00000000000,0.00000000000,1.00000000000,0.00000000000,1.00000000000,0.00000000000;
+
